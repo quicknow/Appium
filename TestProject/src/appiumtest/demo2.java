@@ -16,7 +16,7 @@ private AndroidDriver driver;
 public void calc() throws Exception {
     DesiredCapabilities capabilities = new DesiredCapabilities();
     capabilities.setCapability(CapabilityType.BROWSER_NAME, "");// 这句不是必须的
-    capabilities.setCapability("deviceName", "Android Emulator");
+    capabilities.setCapability("deviceName", "VKAMHEKRK7DAGIE6"); //VKAMHEKRK7DAGIE6 Android Emulator
     capabilities.setCapability("platformVersion", "4.3");
     capabilities.setCapability("platformName", "Android");
     capabilities.setCapability("appPackage", "com.android.calculator2");
