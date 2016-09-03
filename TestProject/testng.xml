@@ -5,7 +5,7 @@
 
   <test name="SungXing">
     <parameter name="remoteNodeUrl" value="http://127.0.0.1:4493/wd/hub" /> 
-    <parameter name="devicename" value="192.168.107.101:5555" />     
+    <parameter name="devicename" value="192.168.245.101:5555" />     
     <classes>
     	<class name="appiumtest.MultDemo"/>
     </classes> 
@@ -14,7 +14,7 @@
     
   <test name="Flash">
     <parameter name="remoteNodeUrl" value="http://127.0.0.1:4492/wd/hub" /> 
-    <parameter name="devicename" value="VKAMHEKRK7DAGIE6" />     
+    <parameter name="devicename" value="192.168.245.102:5555" />     
     <classes>
     	<class name="appiumtest.MultDemo"/>
     </classes> 

@@ -24,9 +24,9 @@ public class MultDemo {
 	@BeforeClass
 	public void beforeTest(String remoteNodeUrl,String devicename) throws MalformedURLException{
 		
-		if(devicename.equalsIgnoreCase("VKAMHEKRK7DAGIE6")){
+		if(devicename.equalsIgnoreCase("192.168.245.102:5555")){
 			driver=GetDriver.getRemoteFlash(remoteNodeUrl);
-		}else if(devicename.equalsIgnoreCase("192.168.107.101:5555")){
+		}else if(devicename.equalsIgnoreCase("192.168.245.101:5555")){
 			driver=GetDriver.getRemoteSungXing(remoteNodeUrl);
 		}
 	}

@@ -33,7 +33,7 @@ public class GetDriver {
 	public static AndroidDriver getRemoteFlash(String remoteNodeUrl) throws MalformedURLException{
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 	    capabilities.setCapability(CapabilityType.BROWSER_NAME, "");// 这句不是必须的
-	    capabilities.setCapability("deviceName", "VKAMHEKRK7DAGIE6"); 
+	    capabilities.setCapability("deviceName", "192.168.245.102:5555"); 
 	    capabilities.setCapability("platformVersion", "4.3");
 	    capabilities.setCapability("platformName", "Android");
 	    capabilities.setCapability("appPackage", "com.android.calculator2");

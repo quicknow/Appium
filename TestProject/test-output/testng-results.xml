@@ -2,40 +2,12 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite1" duration-ms="38627" started-at="2016-08-30T11:41:32Z" finished-at="2016-08-30T11:42:10Z">
+  <suite name="Suite1" duration-ms="10808" started-at="2016-08-31T13:27:12Z" finished-at="2016-08-31T13:27:23Z">
     <groups>
     </groups>
-    <test name="SungXing" duration-ms="8000" started-at="2016-08-30T11:41:32Z" finished-at="2016-08-30T11:41:40Z">
+    <test name="Flash" duration-ms="10069" started-at="2016-08-31T13:27:12Z" finished-at="2016-08-31T13:27:22Z">
       <class name="appiumtest.MultDemo">
-        <test-method status="PASS" signature="beforeTest(java.lang.String, java.lang.String)[pri:0, instance:appiumtest.MultDemo@178bf083]" name="beforeTest" is-config="true" duration-ms="3778" started-at="2016-08-30T19:41:32Z" finished-at="2016-08-30T19:41:35Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[http://127.0.0.1:4493/wd/hub]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[192.168.107.101:5555]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="add()[pri:0, instance:appiumtest.MultDemo@178bf083]" name="add" duration-ms="4208" started-at="2016-08-30T19:41:35Z" finished-at="2016-08-30T19:41:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- add -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:appiumtest.MultDemo@178bf083]" name="afterTest" is-config="true" duration-ms="1" started-at="2016-08-30T19:41:40Z" finished-at="2016-08-30T19:41:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- appiumtest.MultDemo -->
-    </test> <!-- SungXing -->
-    <test name="Flash" duration-ms="38627" started-at="2016-08-30T11:41:32Z" finished-at="2016-08-30T11:42:10Z">
-      <class name="appiumtest.MultDemo">
-        <test-method status="PASS" signature="beforeTest(java.lang.String, java.lang.String)[pri:0, instance:appiumtest.MultDemo@3cf720d5]" name="beforeTest" is-config="true" duration-ms="26266" started-at="2016-08-30T19:41:32Z" finished-at="2016-08-30T19:41:58Z">
+        <test-method status="PASS" signature="beforeTest(java.lang.String, java.lang.String)[pri:0, instance:appiumtest.MultDemo@745c172b]" name="beforeTest" is-config="true" duration-ms="4864" started-at="2016-08-31T21:27:12Z" finished-at="2016-08-31T21:27:17Z">
           <params>
             <param index="0">
               <value>
@@ -44,22 +16,50 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[VKAMHEKRK7DAGIE6]]>
+                <![CDATA[192.168.245.102:5555]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="add()[pri:0, instance:appiumtest.MultDemo@3cf720d5]" name="add" duration-ms="12349" started-at="2016-08-30T19:41:58Z" finished-at="2016-08-30T19:42:10Z">
+        <test-method status="PASS" signature="add()[pri:0, instance:appiumtest.MultDemo@745c172b]" name="add" duration-ms="5194" started-at="2016-08-31T21:27:17Z" finished-at="2016-08-31T21:27:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- add -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:appiumtest.MultDemo@3cf720d5]" name="afterTest" is-config="true" duration-ms="0" started-at="2016-08-30T19:42:10Z" finished-at="2016-08-30T19:42:10Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:appiumtest.MultDemo@745c172b]" name="afterTest" is-config="true" duration-ms="1" started-at="2016-08-31T21:27:22Z" finished-at="2016-08-31T21:27:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
       </class> <!-- appiumtest.MultDemo -->
     </test> <!-- Flash -->
+    <test name="SungXing" duration-ms="10808" started-at="2016-08-31T13:27:12Z" finished-at="2016-08-31T13:27:23Z">
+      <class name="appiumtest.MultDemo">
+        <test-method status="PASS" signature="beforeTest(java.lang.String, java.lang.String)[pri:0, instance:appiumtest.MultDemo@67177a6]" name="beforeTest" is-config="true" duration-ms="4360" started-at="2016-08-31T21:27:12Z" finished-at="2016-08-31T21:27:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://127.0.0.1:4493/wd/hub]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[192.168.245.101:5555]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="add()[pri:0, instance:appiumtest.MultDemo@67177a6]" name="add" duration-ms="6436" started-at="2016-08-31T21:27:17Z" finished-at="2016-08-31T21:27:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- add -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:appiumtest.MultDemo@67177a6]" name="afterTest" is-config="true" duration-ms="1" started-at="2016-08-31T21:27:23Z" finished-at="2016-08-31T21:27:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- appiumtest.MultDemo -->
+    </test> <!-- SungXing -->
   </suite> <!-- Suite1 -->
 </testng-results>
