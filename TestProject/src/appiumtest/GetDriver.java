@@ -19,7 +19,7 @@ public class GetDriver {
 	public static AndroidDriver getRemoteSungXing(String remoteNodeUrl) throws MalformedURLException{
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 	    capabilities.setCapability(CapabilityType.BROWSER_NAME, "");// 这句不是必须的
-	    capabilities.setCapability("deviceName", "192.168.107.101:5555"); 
+	    capabilities.setCapability("deviceName", "192.168.245.101:5555"); 
 	    capabilities.setCapability("platformVersion", "4.3");
 	    capabilities.setCapability("platformName", "Android");
 	    capabilities.setCapability("appPackage", "com.android.calculator2");
@@ -38,7 +38,7 @@ public class GetDriver {
 	    capabilities.setCapability("platformName", "Android");
 	    capabilities.setCapability("appPackage", "com.android.calculator2");
 	    capabilities.setCapability("appActivity", ".Calculator");		
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4492/wd/hub"),capabilities);;
+		driver = new AndroidDriver(new URL("http://127.0.0.1:4494/wd/hub"),capabilities);  //port和devcename做成参数化可以简化代码
 		return driver;
 	}
 	

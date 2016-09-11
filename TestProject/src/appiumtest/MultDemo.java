@@ -18,7 +18,6 @@ import org.testng.annotations.Test;
 public class MultDemo {
 	
 	private AndroidDriver driver;	
-	public static String baseUrl ="http://www.sogou.com/";	
 
 	@Parameters({"remoteNodeUrl","devicename"})	
 	@BeforeClass
