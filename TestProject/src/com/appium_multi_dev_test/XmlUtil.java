@@ -8,15 +8,18 @@ import javax.sql.RowSetInternal;
 import javax.sql.rowset.WebRowSet;
 import javax.sql.rowset.spi.XmlWriter;
 
+import org.apache.bcel.classfile.InnerClass;
+import org.apache.bcel.generic.ARRAYLENGTH;
 import org.dom4j.io.*;
 import org.dom4j.*;
 import org.dom4j.io.XMLWriter;
+
 import java.io.*;
 
 
 
 public class XmlUtil{
-	/*
+	
 	//动态生成Device xml文件的方法   需要 dom4j jar包支持  DocumentHelper.createDocument();
 	public static void createDeviceXml(List<String> deviceList,List<Integer> appiumPortList) throws Exception{
 		Document document = DocumentHelper.createDocument();   //创建一个document对象，通常用于新建一个xml文档
@@ -38,10 +41,22 @@ public class XmlUtil{
 			}
 		
 		}
+		
+		OutputFormat format  = new OutputFormat("    ", true);
+		XMLWriter xmlWriter2;
+		
+		try {			
+			xmlWriter2 = new XMLWriter(new FileOutputStream("device.xml"),format);			
+			xmlWriter2.write(document);
+			xmlWriter2.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}		
 	
-	}*/
+	}
 	
-	/*
+	
 	//动态生成testngxml配置文件
 	public static void createTestngXml(int threadCount, String classname) throws Exception{
 		Server server = new Server(new Port(new DosCmd()),new DosCmd());
@@ -52,17 +67,18 @@ public class XmlUtil{
 		root.addAttribute("name","Suite");
 		root.addAttribute("parallel","tests");
 		root.addAttribute("thread-count",String.valueOf(threadCount));
-		List<String> s=readXML(); //去读配置文件
+		List<String[]> s=readXML(); //去读配置文件
+		//List<String> s=new ArrayList<String>();
 		//根据线程数 动态生成test
 		for(int j=0;j<threadCount;j++){
 			Element test =root.addElement("test");
 			test.addAttribute("name",deviceList.get(j));
 			Element paramPort = test.addElement("parameter");
 			paramPort.addAttribute("name","port");
-			paramPort.addAttribute("value",s.get(j+1));
+			paramPort.addAttribute("value",s.get(j)[1]);
 			Element paramUuid=test.addElement("parameter");
-			paramUuid.addAttribute("name","uuid");
-			paramUuid.addAttribute("value",s.get(j));
+			paramUuid.addAttribute("name","devicename");
+			paramUuid.addAttribute("value",s.get(j)[0]);
 			Element classes = test.addElement("classes");	
 		
 			Element classNode=classes.addElement("class");
@@ -74,62 +90,66 @@ public class XmlUtil{
 		XMLWriter xmlWriter2;
 		
 		try {			
-			xmlWriter2 = new XMLWriter(new FileOutputStream("testng.xml"),format);			
+			xmlWriter2 = new XMLWriter(new FileOutputStream("testng2.xml"),format);			
 			xmlWriter2.write(document);			
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}		
 		
-	}*/
+	}
 	
 	//读取xml文件的函数
-	public static void readXML(){
+	public static List<String[]> readXML(){
+		File file = new File("device.xml");
 		SAXReader reader = new SAXReader(); // User.hbm.xml表示你要解析的xml文档  
-        InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("testng.xml");  
+        List<String[]> s=new ArrayList<String[]>();		
         try {  
-            Document doc = reader.read(in);  
+            Document doc = reader.read(file);  
             Element root = doc.getRootElement(); // 获取根节点  
-            List<Element> list = new ArrayList<Element>();  
-            list.add(root);  
-            while (list != null) {  
-                Element element = null;  
-                Element ele = null;  
-  
-                Iterator ite = list.iterator();  
-                if (ite.hasNext()) {  
-                    ele = (Element) ite.next();  
-                    ite.remove();  
-                }  
-                if (ele != null) {  
-                    for (Iterator i = ele.elementIterator(); (i != null)  
-                            && (i.hasNext());) {  
-                        element = (Element) i.next();  
-                        list.add(element);  
-                        if (element != null) {  
-                            System.out.println(element.getName() + " : "  
-                                    + element.getPath() + " --"  
-                                    + element.getText());  
-                            for (Iterator iter = element.attributeIterator(); iter  
-                                    .hasNext();) {  
-                                Attribute item = (Attribute) iter.next();  
-                                System.out.println(item.getName() + "为"  
-                                        + item.getValue());  
-                            }  
-                        }  
-                    }  
-                }  
-            }  
+            Element element;   
+            for (Iterator i = root.elementIterator("deviceId"); i.hasNext();) {   
+            	  element = (Element) i.next(); 
+            	  /*
+	              System.out.print("name:" + element.elementText("deviceName")+" ");   
+	              System.out.println("port:" + element.elementText("appiumPort")); */
+            	  String str1=element.elementText("deviceName");
+            	  String str2=element.elementText("appiumPort");
+            	  String[] str=new String[2];
+            	  str[0]=str1;
+            	  str[1]=str2;
+            	  s.add(str);
+             }             
+           
+            
         } catch (DocumentException e) {  
   
             e.printStackTrace();  
         } 
-		
+        
+        return s;
 	}
-	
+	//调试
 	public static void main(String[] args) throws Exception{
 		//createTestngXml(2,"cn.gloryroad.gloryroadAppium.WeiXinTest");
-		readXML();
+		//readXML();
+		//调试生成device.xml的代码块
+		String device="192.168.245.101:5555";
+		String device2="192.168.245.102:5555";
+		List<String> deviceList=new ArrayList<String>();
+		deviceList.add(device);
+		deviceList.add(device2);
+		List<Integer> appiumPortList=new ArrayList<Integer>();		
+		Integer intr= new Integer(4493);
+		Integer intr2= new Integer(4494);
+		appiumPortList.add(intr);
+		appiumPortList.add(intr2);
+		//XmlUtil.createDeviceXml(deviceList, appiumPortList);
+		XmlUtil xx= new XmlUtil();
+		xx.createDeviceXml(deviceList, appiumPortList);
+		
+		
+		
 	}
 
 }

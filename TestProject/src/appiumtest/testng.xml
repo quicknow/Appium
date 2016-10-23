@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite1" parallel="tests" thread-count="2">
+
+  <test name="SungXing">
+    <parameter name="remoteNodeUrl" value="http://127.0.0.1:4493/wd/hub" /> 
+    <parameter name="devicename" value="192.168.245.101:5555" />     
+    <classes>
+    	<class name="appiumtest.MultDemo"/>
+    </classes> 
+       
+  </test>
+    
+  <test name="Flash">
+    <parameter name="remoteNodeUrl" value="http://127.0.0.1:4494/wd/hub" /> 
+    <parameter name="devicename" value="192.168.245.102:5555" />     
+    <classes>
+    	<class name="appiumtest.MultDemo"/>
+    </classes> 
+       
+  </test>
+   
+      
+</suite>

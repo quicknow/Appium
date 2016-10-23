@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" name="Failed suite [Suite1]" parallel="tests">
-  <parameter name="remoteNodeUrl" value="http://127.0.0.1:4492/wd/hub"/>
+  <parameter name="remoteNodeUrl" value="http://127.0.0.1:4494/wd/hub"/>
   <parameter name="devicename" value="192.168.245.102:5555"/>
+  <test name="SungXing(failed)" parallel="tests">
+    <parameter name="remoteNodeUrl" value="http://127.0.0.1:4493/wd/hub"/>
+    <parameter name="devicename" value="192.168.245.101:5555"/>
+    <classes>
+      <class name="appiumtest.MultDemo">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="add"/>
+        </methods>
+      </class> <!-- appiumtest.MultDemo -->
+    </classes>
+  </test> <!-- SungXing(failed) -->
   <test name="Flash(failed)" parallel="tests">
-    <parameter name="remoteNodeUrl" value="http://127.0.0.1:4492/wd/hub"/>
+    <parameter name="remoteNodeUrl" value="http://127.0.0.1:4494/wd/hub"/>
     <parameter name="devicename" value="192.168.245.102:5555"/>
     <classes>
       <class name="appiumtest.MultDemo">
@@ -12,7 +25,6 @@
           <include name="beforeTest"/>
           <include name="beforeTest"/>
           <include name="add"/>
-          <include name="afterTest"/>
         </methods>
       </class> <!-- appiumtest.MultDemo -->
     </classes>

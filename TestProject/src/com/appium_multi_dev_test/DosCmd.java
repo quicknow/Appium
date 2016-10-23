@@ -9,9 +9,13 @@ public class DosCmd{
 	public boolean execCmd(String cmdString){
 		Runtime p = Runtime.getRuntime();
 		try{
-			Process process = p.exec("cmd /c"+cmdString);
+			//开始执行
+			System.out.println("开始执行 cmd /c "+cmdString);
+			Process process = p.exec("cmd /c "+cmdString);
+			
 			process.waitFor();			
 			process.destroy();
+			System.out.println(cmdString+"执行结束了");
 			return true;
 		}catch(Exception e){
 			
@@ -21,7 +25,7 @@ public class DosCmd{
 
 
 
-		//把dos命令执行的结果返回回来
+		//把dos命令执行的结果放入list集合中并返回集合
 	public List<String> execCmdConsole(String cmdString) throws InterruptedException{
 		List<String> dosRes = new ArrayList<String>();
 		try{
@@ -43,7 +47,7 @@ public class DosCmd{
 	
 	}
 	
-	
+	//根据进程号杀死进程
 	public boolean killServer(int pid){
 		if(execCmd("taskkill -f -PID"+String.valueOf(pid))){
 		
@@ -54,7 +58,7 @@ public class DosCmd{
 		}
 	}
 
-
+	//根据进程名杀死进程
 	public boolean killServer(String serverName){
 		if(execCmd("taskkill -f -im "+serverName)){
 			
