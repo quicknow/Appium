@@ -7,8 +7,7 @@ public class Server{
 	private List<Integer> bootstrapPortList;
 	private List<String> deviceList;
 	private Port port;
-	private DosCmd dos;
-	static String str="";
+	private DosCmd dos;	
 	
 	public Server(Port port, DosCmd dos){
 		this.port=port;
@@ -50,7 +49,7 @@ public class Server{
 		deviceList = getDevices();
 		List<String> commandList = new ArrayList<String>();		
 		for(int i=0;i<deviceList.size();i++){
-			String command="appium -p " +appiumPortList.get(i)+" -bp "+bootstrapPortList.get(i)+" -U "+deviceList.get(i); //+" >logs\\"+deviceList.get(i)+".log"
+			String command="appium -p " +appiumPortList.get(i)+" -bp "+bootstrapPortList.get(i)+" -U "+deviceList.get(i)+" >logs\\"+deviceList.get(i)+".txt";
 			
 			System.out.println(command);
 			commandList.add(command);
@@ -67,15 +66,15 @@ public class Server{
 		if(startCommand.size()>0){
 			for(String s:startCommand){
 				//dos.execCmd(s);
-				str=s;	
-				System.out.println(str+i);
+				final String str=s;	 //注意这里必须使用final否则线程中的参数值会发生变化
+				
 				  new Thread() {					  
 				      public void  run() { 
-				    	  System.out.println("str="+str);
+				    	  
 				    	  dos.execCmd(str);
 				      }			          
 				   }.start();
-				System.out.println(i++);				    				
+								    				
 			}
 			flag=true;
 		}else{

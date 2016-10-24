@@ -2,14 +2,14 @@
 
 <suite name="Suite" parallel="tests" thread-count="2">
     <test name="192.168.245.101:5555">
-        <parameter name="port" value="4493"/>
+        <parameter name="port" value="4492"/>
         <parameter name="devicename" value="192.168.245.101:5555"/>
         <classes>
             <class name="com.appium_multi_dev_test.MultDemo"/>
         </classes>
     </test>
     <test name="192.168.245.102:5555">
-        <parameter name="port" value="4494"/>
+        <parameter name="port" value="4493"/>
         <parameter name="devicename" value="192.168.245.102:5555"/>
         <classes>
             <class name="com.appium_multi_dev_test.MultDemo"/>
